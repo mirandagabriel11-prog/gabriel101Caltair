@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline Noturno</title>
+    <style>
+        /* Configurações básicas da página */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: linear-gradient(to bottom, #0B1026 0%, #1D264F 50%, #4D375D 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        /* Lua de fundo */
+        .lua {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 100px;
+            height: 100px;
+            background: #FFEFA6;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 239, 166, 0.6);
+        }
+
+        /* Container principal do Skyline */
+        .skyline-container {
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Estilização genérica dos prédios */
+        .predio {
+            background-color: #111529;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            padding: 15px;
+            gap: 8px;
+        }
+
+        /* Janelas iluminadas aleatoriamente */
+        .predio::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            background-image: radial-gradient(circle, #FFE259 20%, transparent 20%);
+            background-size: 15px 20px;
+            opacity: 0.75;
+        }
+
+        /* Prédio 1 (Esquerda - Alto e Fino) */
+        .p1 {
+            width: 12%;
+            height: 80%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        /* Prédio 2 (Médio com Antena) */
+        .p2 {
+            width: 15%;
+            height: 65%;
+        }
+        .p2::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 40px;
+            background-color: #111529;
+        }
+
+        /* Prédio 3 (Largo e Baixo) */
+        .p3 {
+            width: 22%;
+            height: 45%;
+        }
+
+        /* Prédio 4 (Formato Arrojado/Diagonal) */
+        .p4 {
+            width: 14%;
+            height: 75%;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Prédio 5 (Direita - Comercial Moderno) */
+        .p5 {
+            width: 18%;
+            height: 90%;
+        }
+
+        /* Chão / Linha do horizonte */
+        .chao {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 20px;
+            background-color: #090B16;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lua"></div>
+
+    <div class="skyline-container">
+        <div class="predio p1"></div>
+        <div class="predio p2"></div>
+        <div class="predio p3"></div>
+        <div class="predio p4"></div>
+        <div class="predio p5"></div>
+    </div>
+
+    <div class="chao"></div>
+
+</body>
+</html>
